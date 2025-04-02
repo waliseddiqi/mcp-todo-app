@@ -168,7 +168,7 @@ class MCPClient {
     }
     const mcpClient = new MCPClient();
     try {
-      await mcpClient.connectToServer("/Users/wali.sediqi/Development/mcpApp/mcp-server-typescript/build/index.js");
+      await mcpClient.connectToServer("../mcp-server-typescript/build/index.js");
       await mcpClient.chatLoop();
     }
     catch (error) {
