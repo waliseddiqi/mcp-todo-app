@@ -12,18 +12,6 @@ const server = new McpServer({
         tools: {},
     },
 });
-// Format alert data
-function formatAlert(feature) {
-    const props = feature.properties;
-    return [
-        `Event: ${props.event || "Unknown"}`,
-        `Area: ${props.areaDesc || "Unknown"}`,
-        `Severity: ${props.severity || "Unknown"}`,
-        `Status: ${props.status || "Unknown"}`,
-        `Headline: ${props.headline || "No headline"}`,
-        "---",
-    ].join("\n");
-}
 async function writeFile(content) {
     await fs.writeFile(filePath, content, 'utf8');
 }
@@ -32,7 +20,7 @@ async function readFile() {
     return data;
 }
 // Register weather tools
-server.tool("save-todo", "Save a todo list to a file", {
+server.tool("save-todo", "Save, create, make, generate, a todo to a file", {
     todo: z.string().describe("Todo list to save"),
 }, async ({ todo }) => {
     try {
