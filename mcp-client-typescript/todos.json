@@ -1,0 +1,12 @@
+[
+  {
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "time": "8:00 AM",
+    "todo": "Do laundry"
+  },
+  {
+    "uuid": "123e4567-e89b-12d3-a456-426655440000",
+    "time": "Monday, Wednesday, Friday",
+    "todo": "Workout Plan for Muscle Gain"
+  }
+]

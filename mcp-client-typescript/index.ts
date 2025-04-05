@@ -50,7 +50,6 @@ class MCPClient {
       this.mcp.connect(this.transport);
       
       const toolsResult = await this.mcp.listTools();
-      console.log("Tools: ", toolsResult.tools);
       this.tools = toolsResult.tools.map((tool) => {
         return {
           name: tool.name,
@@ -75,14 +74,15 @@ class MCPClient {
         content: query,
       },
     ];
-  console.log("Sending query to Anthropic: ", query);
-    const response = await this.anthropic.messages.create({
+    const response = await this.anthropic.messages.create(
+      {
       model: "claude-3-haiku-20240307",
       max_tokens: 1000,
       messages,
       tools: this.tools,
-    });
-    console.log("Received response from Anthropic: ", response);
+    }
+  
+  );
     const finalText = [];
     const toolResults = [];
   
@@ -118,7 +118,6 @@ class MCPClient {
         );
       }
     }
-    console.log("Tool results: ", finalText);
   
     return finalText.join("\n");
   }
